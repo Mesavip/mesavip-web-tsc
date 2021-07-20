@@ -1,23 +1,27 @@
 import React from 'react';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import Routes from './Routes';
+import GlobalStyle from './styles/global';
+import Header from './components/Header';
+
+import './styles/font.css';
+import light from './styles/themes/light';
+import dark from './styles/themes/dark';
+import usePersistedState from './utils/usePersistedState';
 
 function App() {
+  const [theme, setTheme] = usePersistedState('light', light);
+
+  const toggleTheme = () => setTheme(theme.title === 'light' ? dark : light);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <Header toggleTheme={toggleTheme} />
+        <Routes />
+        <GlobalStyle />
+      </ThemeProvider>
+    </>
   );
 }
 
