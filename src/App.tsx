@@ -5,8 +5,8 @@ import GlobalStyle from './styles/global';
 import Header from './components/Header';
 
 import './styles/font.css';
-import light from './styles/themes/light';
-import dark from './styles/themes/dark';
+import { light } from './styles/themes/light';
+import { dark } from './styles/themes/dark';
 import usePersistedState from './utils/usePersistedState';
 
 function App() {

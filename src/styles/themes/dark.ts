@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-export default {
+export const dark =  {
   title: 'dark',
   separator: '#3b3f42',
   logo: 'https://bit.ly/2UjKlSb',

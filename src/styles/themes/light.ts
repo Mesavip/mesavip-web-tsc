@@ -1,4 +1,4 @@
-export default {
+export const light =  {
   title: 'light',
   separator: 'rgba(0, 0, 0, 0.0275)',
   logo: 'https://bit.ly/3sERTuX',
