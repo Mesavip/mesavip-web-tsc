@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   title: 'dark',
   separator: '#3b3f42',

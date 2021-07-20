@@ -54,7 +54,9 @@ export default function Header({ toggleTheme }: Props) {
             Restaurants
           </a>
         </li>
-
+        <li>
+              <Button text="Sign out" href="/" />
+            </li>
         {/* {isAuthenticated() ? (
           <>
             <li className="on-hover">
