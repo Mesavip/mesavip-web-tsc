@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Mesavip" title="Mesavip" src=".github/logo-transparent.png" width="300px" />
+  <img alt="Mesavip" title="Mesavip" src=".github/logo-white.png" width="300px" />
 </h1>
 
 <h3 align="center"> Mesavip helps you making reservations in your favorite restaurants. </h3>

@@ -37,8 +37,7 @@ export default function Header({ toggleTheme }: Props) {
 
         <li className="on-hover">
           <a
-            href="https://bit.ly/3tIw4v3"
-            // alt="Application github repo"
+            href="https://bit.ly/2W265m9"
             target="_blank"
             rel="noreferrer"
             className="github-link"
@@ -52,7 +51,7 @@ export default function Header({ toggleTheme }: Props) {
             Restaurants
           </a>
         </li>
-        
+
         {isAuthenticated() ? (
           <>
             <li className="on-hover">
