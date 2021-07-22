@@ -1,20 +1,18 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
-// import { logout } from '../../services/auth';
+import { logout } from '../../services/auth';
 
 interface Props {
   text: string,
   href: string,
-  signout?: string
+  signout?: boolean
 }
 
-export default function Button(props: Props) {
-  const { text, href } = props;
+export default function Button(props: Props)  {
+  const { text, href, signout } = props;
 
   return (
     <div className="buttons">
       <a href={href}>
-        <button >
+      <button onClick={ signout ? () => logout() : undefined} type="button">
           {text}
         </button>
       </a>

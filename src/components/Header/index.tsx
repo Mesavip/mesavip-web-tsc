@@ -1,12 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { FaGithub, FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeContext } from 'styled-components';
 import Switch from 'react-switch';
 import { Nav } from './styles';
 import Button from './Button';
-// import { isAuthenticated } from '../../services/auth';
+import { isAuthenticated } from '../../services/auth';
 
 interface Props {
   toggleTheme(): void;
@@ -54,10 +52,8 @@ export default function Header({ toggleTheme }: Props) {
             Restaurants
           </a>
         </li>
-        <li>
-              <Button text="Sign out" href="/" />
-            </li>
-        {/* {isAuthenticated() ? (
+        
+        {isAuthenticated() ? (
           <>
             <li className="on-hover">
               <a href="/reservations" className="text">
@@ -78,7 +74,7 @@ export default function Header({ toggleTheme }: Props) {
               <Button text="Sign up" href="/signup" />
             </li>
           </>
-        )} */}
+        )}
 
         <li className="switch-theme">
           <Switch

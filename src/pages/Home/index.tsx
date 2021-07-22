@@ -10,28 +10,26 @@ import {
 } from './styles';
 
 interface Restaurant {
-  'id': string,
-  'name': string,
-  'culinary': string,
-  'bairro': string,
-  'image': string,
-  'avg_rating': string
+  id: string;
+  name: string;
+  culinary: string;
+  bairro: string;
+  image: string;
+  avg_rating: string;
 }
 
-export default function RestaurantsList() {
+export function Home() {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
 
   function redirectToRestaurant(restaurant_id: any) {
     window.location.href = `../restaurants/${restaurant_id}`;
   }
 
-  useEffect(
-    () => {
-      api.get<Restaurant[]>('restaurants').then((response) => {
-        setRestaurants(response.data);
-      });
-    }, []
-  );
+  useEffect(() => {
+    api.get<Restaurant[]>('restaurants').then((response) => {
+      setRestaurants(response.data);
+    });
+  }, []);
 
   return (
     <Container>
