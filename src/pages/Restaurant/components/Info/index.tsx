@@ -1,17 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
+import { RestaurantPageContext } from '../../contexts/RestaurantContext';
 import { Container, Main, Details, Rate } from './styles';
 
-interface Props {
-  name: string;
-  operation_hours: string;
-  address: string;
-  culinary: string;
-  avg_rating: string;
-  total_ratings: string;
-}
-
-export function Info(props: Props) {
+export function Info() {
+  const { restaurant } = useContext(RestaurantPageContext);
   const {
     name,
     operation_hours,
@@ -19,7 +12,7 @@ export function Info(props: Props) {
     culinary,
     avg_rating,
     total_ratings,
-  } = props;
+  } = restaurant;
 
   return (
     <Container>

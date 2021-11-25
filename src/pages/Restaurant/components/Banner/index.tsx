@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { api } from '../../../../services/api';
+import { RestaurantPageContext } from '../../contexts/RestaurantContext';
 
-interface Props {
-  restaurant_id: string;
-}
-
-export function Banner(props: Props) {
+export function Banner() {
   const [banner, setBanner] = useState('');
-  const { restaurant_id } = props;
+  const { restaurant_id } = useContext(RestaurantPageContext);
 
   useEffect(() => {
     api

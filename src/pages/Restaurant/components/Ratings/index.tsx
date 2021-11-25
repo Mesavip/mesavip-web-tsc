@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { FaRegCommentAlt } from 'react-icons/fa';
 import { api } from '../../../../services/api';
 import {
@@ -10,24 +10,13 @@ import {
   Separator,
 } from './styles';
 import { Stars } from './Stars';
+import { Ratings as IRatings } from '../../../../interfaces/Ratings';
+import { RestaurantPageContext } from '../../contexts/RestaurantContext';
 
-interface Props {
-  restaurant_id: string;
-  average: string;
-  totalratings: string;
-}
-
-interface Ratings {
-  id: string;
-  comment: string;
-  rating: number;
-  date: string;
-  client: string;
-}
-
-export function Ratings(props: Props) {
-  const [ratings, setRatings] = useState<Ratings[]>([]);
-  const { average, totalratings, restaurant_id } = props;
+export function Ratings() {
+  const [ratings, setRatings] = useState([] as IRatings[]);
+  const { restaurant, restaurant_id } = useContext(RestaurantPageContext);
+  const { avg_rating, total_ratings } = restaurant;
 
   useEffect(() => {
     api.get(`ratings/list/${restaurant_id}`).then((item) => {
@@ -39,15 +28,15 @@ export function Ratings(props: Props) {
     <Container className="ratings">
       <Average>
         <span>CUSTOMERS RATINGS</span>
-        <h3>{average}</h3>
-        <Stars numberOfStars={average} starSize={25} />
-        <p> {totalratings} ratings</p>
+        <h3>{avg_rating}</h3>
+        <Stars numberOfStars={avg_rating} starSize={25} />
+        <p> {total_ratings} ratings</p>
       </Average>
 
       <div>
         <NumberOfComments>
           <FaRegCommentAlt size={16} />
-          <span> {totalratings} Comments </span>
+          <span> {total_ratings} Comments </span>
         </NumberOfComments>
 
         {ratings.map((rating) => (

@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Container } from './styles';
 import { api } from '../../../../services/api';
-
-interface Props {
-  restaurant_id: string;
-}
+import { RestaurantPageContext } from '../../contexts/RestaurantContext';
 
 interface Image {
   id: string;
   path: string;
 }
 
-export function ImagesGallery(props: Props) {
-  const [images, setImages] = useState<Image[]>([]);
-  const [bigImage, setBigImage] = useState<Partial<Image>>({});
-  const { restaurant_id } = props;
+export function ImagesGallery() {
+  const [images, setImages] = useState([] as Image[]);
+  const [bigImage, setBigImage] = useState({} as Image);
+  const { restaurant_id } = useContext(RestaurantPageContext);
 
   useEffect(() => {
     api.get(`files/list/${restaurant_id}/galeria`).then((item) => {

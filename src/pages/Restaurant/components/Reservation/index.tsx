@@ -1,25 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
 import DayPicker from 'react-day-picker';
 import { Container, Hours, Select, AvailableHours, Button } from './styles';
 import { api } from '../../../../services/api';
 import 'react-day-picker/lib/style.css';
-
-interface Props {
-  restaurant_id: string;
-}
+import { RestaurantPageContext } from '../../contexts/RestaurantContext';
 
 interface Hour {
   id: string;
   hour: string;
 }
 
-export function Reservation(props: Props) {
-  const [hours, setHours] = useState<Hour[]>([]);
+export function Reservation() {
+  const [hours, setHours] = useState([] as Hour[]);
   const [selectedHour, setSelectedHour] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const { restaurant_id } = props;
+  const { restaurant_id } = useContext(RestaurantPageContext);
   const today = new Date();
   const modalBackgroundColor = JSON.parse(
     localStorage.getItem('light') || '{}'

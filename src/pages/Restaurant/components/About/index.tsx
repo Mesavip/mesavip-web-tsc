@@ -1,14 +1,11 @@
+import { useContext } from 'react';
 import { FaPhoneAlt, FaGlobe } from 'react-icons/fa';
+import { RestaurantPageContext } from '../../contexts/RestaurantContext';
 import { Container, Contact } from './styles';
 
-interface Props {
-  about: string;
-  phone: string;
-  site: string;
-}
-
-export function About(props: Props) {
-  const { about, phone, site } = props;
+export function About() {
+  const { restaurant } = useContext(RestaurantPageContext);
+  const { about, phone, site } = restaurant;
 
   return (
     <Container>

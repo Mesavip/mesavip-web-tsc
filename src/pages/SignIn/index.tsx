@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { UserFormData } from '../../interfaces/UserFormData';
 import { api } from '../../services/api';
 import { login } from '../../services/auth';
 import {
@@ -11,13 +12,8 @@ import {
   CreateAccountLink,
 } from './styles';
 
-interface User {
-  email: string;
-  password: string;
-}
-
 export function SignIn() {
-  const [user, setUser] = useState<User>({ email: '', password: '' });
+  const [user, setUser] = useState({} as UserFormData);
 
   async function handleSubmit(event: any): Promise<void> {
     event.preventDefault();
